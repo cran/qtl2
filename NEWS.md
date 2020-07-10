@@ -1,6 +1,23 @@
+## qtl2 0.22-11 (2020-07-09)
+
+### Bug fixes
+
+- Small changes in tests to avoid failures on solaris
+
+
+## qtl2 0.22-10 (2020-06-30)
+
+### Bug fixes
+
+- Fixed compilation error on Solaris on CRAN, due to a log(10) and
+  sqrt(10). Solaris refuses to do log(int) or sqrt(int), I guess.
+
+- Fixed some conflicting enum definitions in c++ code
+
+
 ## qtl2 0.22-8 (2020-06-22)
 
-## Minor changes
+### Minor changes
 
 - Added recognition of the R Core Team as a contributor, as the
   package includes a copy of code for Brent's method for univariate
