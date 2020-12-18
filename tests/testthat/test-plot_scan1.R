@@ -2,6 +2,8 @@ context("plot_scan1")
 
 test_that("plot_scan1 works", {
 
+    skip_if(isnt_karl(), "plot tests only run locally")
+
     iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
     map <- insert_pseudomarkers(iron$gmap, step=1)
     probs <- calc_genoprob(iron, map, error_prob=0.002)
@@ -20,11 +22,11 @@ test_that("plot_scan1 works", {
         legend("topleft", lwd=2, col=c("darkslateblue", "violetred"), colnames(out),
                bg="gray90") }
 
-    vdiffr::expect_doppelganger("plot_scan1", test_plot_scan1)
+    expect_doppelganger("plot_scan1", test_plot_scan1)
 
 
     # single chromosome
     test_plot_scan1_onechr <- function() plot(out, map, chr=2)
-    vdiffr::expect_doppelganger("plot_scan1_onechr", test_plot_scan1_onechr)
+    expect_doppelganger("plot_scan1_onechr", test_plot_scan1_onechr)
 
 })

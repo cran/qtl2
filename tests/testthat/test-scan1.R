@@ -205,7 +205,7 @@ test_that("scan1 for backcross with one phenotype", {
 
 test_that("scan1 for backcross with multiple phenotypes with NAs", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     set.seed(20151202)
     library(qtl)
@@ -325,7 +325,7 @@ test_that("scan1 for backcross with multiple phenotypes with NAs", {
 
 test_that("scan1 works with NAs in the covariates", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     set.seed(20151202)
     library(qtl)
@@ -372,7 +372,7 @@ test_that("scan1 works with NAs in the covariates", {
 
 test_that("scan1 aligns the individuals", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     set.seed(20151202)
     library(qtl)
@@ -537,7 +537,7 @@ test_that("multi-core scan1 works", {
 
 test_that("scan1 LOD results don't depend on scale of x and y", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     set.seed(20151202)
     library(qtl)
@@ -610,7 +610,7 @@ test_that("scan1 LOD results don't depend on scale of x and y", {
 
 test_that("scan1 deals with mismatching individuals", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
     map <- insert_pseudomarkers(iron$gmap, step=2.5)
@@ -633,7 +633,7 @@ test_that("scan1 deals with mismatching individuals", {
 
 test_that("scan1 can handle decomposed kinship matrix", {
 
-    skip_if(isnt_karl(), "This test only run locally")
+    skip_if(isnt_karl(), "this test only run locally")
 
     iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
 
@@ -662,5 +662,32 @@ test_that("weights derived from table() are okay", {
 
     expect_equal(out1, out2)
     expect_equal(out1k, out2k)
+
+})
+
+test_that("scan1 can handle names in the phenotype rownames", {
+
+    iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
+    pr <- calc_genoprob(iron, error_prob=0.002)
+    pheno <- iron$pheno
+    out <- scan1(pr, pheno)
+
+    names(rownames(pheno)) <- paste0("mouse", rownames(pheno))
+    expect_equal(scan1(pr, pheno), out)
+
+    names(rownames(pheno)) <- rep(NA, nrow(pheno))
+    expect_equal(scan1(pr, pheno), out)
+
+
+    # the same with kinship matrix
+    pheno <- iron$pheno
+    k <- calc_kinship(pr)
+    out <- scan1(pr, pheno, k)  # no error
+
+    names(rownames(pheno)) <- paste0("mouse", rownames(pheno))
+    expect_equal(scan1(pr, pheno, k), out)
+
+    names(rownames(pheno)) <- rep(NA, nrow(pheno))
+    expect_equal(scan1(pr, pheno, k), out)
 
 })

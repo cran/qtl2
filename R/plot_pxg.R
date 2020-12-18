@@ -2,9 +2,8 @@
 #'
 #' Plot phenotype vs genotype for a single putative QTL and a single phenotype.
 #'
-#' @param geno Vector of genotypes, as produced by
-#' [maxmarg()] with specific `chr` and
-#' `pos`.
+#' @param geno Vector of genotypes, for example as produced by
+#' [maxmarg()] with specific `chr` and `pos`.
 #' @param pheno Vector of phenotypes.
 #' @param sort If TRUE, sort genotypes from largest to smallest.
 #' @param SEmult If specified, interval estimates of the within-group
@@ -20,7 +19,7 @@
 #' @param force_labels If TRUE, force all genotype labels to be shown.
 #' @param alternate_labels If TRUE, place genotype labels in two rows
 #' @param omit_points If TRUE, omit the points, just plotting the averages (and, potentially, the +/- SE intervals).
-#' @param ... Additional graphics parameters, passed to [base::plot()].
+#' @param ... Additional graphics parameters, passed to `plot()`.
 #'
 #' @return (Invisibly) A matrix with rows being the genotype groups
 #' and columns for the means and (if `SEmult` is specified) the SEs.
@@ -90,6 +89,15 @@ plot_pxg <-
         jitter <- runif(length(geno), -jitter, jitter)
     }
     names(jitter) <- names(geno)
+
+    # force pheno to be numeric
+    if(is.matrix(pheno) || is.data.frame(pheno)) {
+        if(ncol(pheno)>1) {
+            pheno <- pheno[,1,drop=FALSE]
+            warning("pheno is a ", class(pheno)[1], "; using the first column")
+        }
+        pheno <- setNames(as.numeric(unlist(pheno)), rownames(pheno))
+    }
 
     # align geno and pheno
     ind_g <- names(geno)

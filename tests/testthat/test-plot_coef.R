@@ -2,6 +2,8 @@ context("plot_coef")
 
 test_that("plot_coef works", {
 
+    skip_if(isnt_karl(), "plot tests only run locally")
+
     iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
     iron <- iron[,2]
     map <- insert_pseudomarkers(iron$gmap, step=1)
@@ -14,6 +16,6 @@ test_that("plot_coef works", {
 
     test_plot_coef <- function() plot(coef, map, columns=1:3)
 
-    vdiffr::expect_doppelganger("plot_coef", test_plot_coef)
+    expect_doppelganger("plot_coef", test_plot_coef)
 
 })

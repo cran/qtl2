@@ -2,6 +2,8 @@ context("plot_peaks")
 
 test_that("plot_peaks works", {
 
+    skip_if(isnt_karl(), "plot tests only run locally")
+
     iron <- read_cross2(system.file("extdata", "iron.zip", package="qtl2"))
     map <- insert_pseudomarkers(iron$gmap, step=1)
     probs <- calc_genoprob(iron, map, error_prob=0.002)
@@ -17,10 +19,10 @@ test_that("plot_peaks works", {
 
     test_plot_peaks <- function() plot_peaks(peaks, map)
 
-    vdiffr::expect_doppelganger("plot_peaks", test_plot_peaks)
+    expect_doppelganger("plot_peaks", test_plot_peaks)
 
     peaks <- find_peaks(out, map, threshold=3.5)
     test_plot_peaks_noci <- function() plot_peaks(peaks, map)
-    vdiffr::expect_doppelganger("plot_peaks_noci", test_plot_peaks_noci)
+    expect_doppelganger("plot_peaks_noci", test_plot_peaks_noci)
 
 })

@@ -1,3 +1,75 @@
+## qtl2 0.24 (2020-12-16)
+
+### Major changes
+
+- Revised treatment of X chromosome in "general AIL" cross type, to be
+  the same as the autosomes but with 2/3 as many generations for
+  recombination. This should provide a better approximation.
+
+### Minor changes
+
+- Revised `reduce_markers()` so that it can handle the case of _many_
+  markers, by working with them in smaller batches.
+
+- `fit1()` now returns both fitted values and residuals.
+
+- `fit1()` can be run with genotype probabilities omitted, in which
+  case an intercept column of 1's is used (Issue #151).
+
+- Updated mouse gene database with 2020-09-07 data from
+  [MGI](http://www.informatics.jax.org/downloads/mgigff3/archive/monthly/).
+
+- Implemented Issue #184, to make `calc_het()` multi-core.
+
+- Make the [vdiffr](https://vdiffr.r-lib.org) package optional: only
+  test the plots locally, and only if vdiffr is installed.
+
+- `calc_sdp()` can now take a plain vector (Issue #142).
+
+- Added a `lodcolumn` argument to `maxlod()` (Issue #137).
+
+### Bug fixes
+
+- Fixed [Issue #181](https://github.com/rqtl/qtl2/issues/181), where
+  `calc_het()` gave values > 1 when used with
+  [R/qtl2fst](https://github.com/rqtl/qtl2fst)-based probabilities.
+  Also fixed a similar bug in `calc_geno_freq()`.
+
+- Fixed [Issue #172](https://github.com/rqtl/qtl2/issues/172), where
+  `fit1()` gave incorrect fitted values when `kinship` is provided,
+  because they weren't "rotated back".
+
+- `fit1()` no longer provides individual LOD scores (`ind_lod`) when
+  `kinship` is used, as with the linear mixed model, the LOD score is
+  not simply the sum of individual contributions.
+
+- Fixed [Issue #174](https://github.com/rqtl/qtl2/issues/174) re
+  `genoprob_to_alleleprob()` for general AIL crosses. We had not
+  implemented the `geno2allele_matrix()` function.
+
+- Fixed Issue #164, so `plot_pxg()` can handle a phenotype that is a
+  single-column data frame.
+
+- Fixed Issue #135, so `plot_scan1()` can take vector input (which is
+  then converted to a single-column matrix).
+
+- Fixed Issue #157, to have `calc_genoprob()` give a better error
+  message about missing genetic map.
+
+- Fixed Issue #178, to have `read_cross2()` give a warning not an error
+  if incorrect number of alleles.
+
+- Fixed Issue #180 re `scan1()` error if phenotypes' rownames have rownames.
+
+- Fixed Issue #146, revising `predict_snpgeno()` so that it works for
+  homozygous populations, like MAGIC lines or the Collaborative Cross.
+
+- Fixed Issue #176, that `guess_phase()` doesn't work with cross type
+  `"genail"`. Needed to define `phase_known_crosstype` as `"genailpk"` in
+  [`cross_genail.h`](https://github.com/rqtl/qtl2/blob/master/src/cross_genail.h)
+  because otherwise `is_phase_known()` will return TRUE.
+
+
 ## qtl2 0.22-11 (2020-07-09)
 
 ### Bug fixes

@@ -2,6 +2,8 @@ context("plot_genes")
 
 test_that("plot_genes works", {
 
+    skip_if(isnt_karl(), "plot tests only run locally")
+
     genes <- data.frame(chr = c("6", "6", "6", "6", "6", "6", "6", "6"),
                         start = c(139988753, 140680185, 141708118, 142234227, 142587862,
                                   143232344, 144398099, 144993835),
@@ -14,6 +16,6 @@ test_that("plot_genes works", {
 
     test_plot_genes <- function() plot_genes(genes, xlim=c(140, 146), scale=1e-6)
 
-    vdiffr::expect_doppelganger("plot_genes", test_plot_genes)
+    expect_doppelganger("plot_genes", test_plot_genes)
 
 })

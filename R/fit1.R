@@ -3,7 +3,8 @@
 #' Fit a single-QTL model at a single putative QTL position and get detailed results
 #' about estimated coefficients and individuals contributions to the LOD score.
 #'
-#' @param genoprobs A matrix of genotype probabilities, individuals x genotypes
+#' @param genoprobs A matrix of genotype probabilities, individuals x genotypes.
+#'     If NULL, we create a single intercept column, matching the individual IDs in `pheno`.
 #' @param pheno A numeric vector of phenotype values (just one phenotype, not a matrix of them)
 #' @param kinship Optional kinship matrix.
 #' @param addcovar An optional numeric matrix of additive covariates.
@@ -42,8 +43,9 @@
 #' * `coef` - Vector of estimated coefficients.
 #' * `SE` - Vector of estimated standard errors (included if `se=TRUE`).
 #' * `lod` - The overall lod score.
-#' * `ind_lod` - Vector of individual contributions to the LOD score.
+#' * `ind_lod` - Vector of individual contributions to the LOD score (not provided if `kinship` is used).
 #' * `fitted`  - Fitted values.
+#' * `resid`  - Residuals.
 #' If `blup==TRUE`, only `coef` and `SE` are included at present.
 #'
 #' @details For each of the inputs, the row names are used as
@@ -121,8 +123,13 @@ fit1 <-
              contrasts=NULL, model=c("normal", "binary"),
              zerosum=TRUE, se=TRUE, hsq=NULL, reml=TRUE, blup=FALSE, ...)
 {
-    if(is.null(genoprobs)) stop("genoprobs is NULL")
     if(is.null(pheno)) stop("pheno is NULL")
+
+    if(missing(genoprobs) || is.null(genoprobs)) { # create matrix of 1's
+        if(!is.matrix(pheno)) pheno <- cbind(pheno)
+        genoprobs <- matrix(1, ncol=1, nrow=nrow(pheno))
+        dimnames(genoprobs) <- list(rownames(pheno), "intercept")
+    }
 
     model <- match.arg(model)
 
@@ -286,7 +293,8 @@ fit1 <-
         ind_lod <- 0.5*(fit0$resid^2/sigsq0 - fitA$resid^2/sigsqA + log(sigsq0) - log(sigsqA))/log(10)
         names(ind_lod) <- names(pheno)
 
-        fitted <- pheno - fitA$resid
+        fitted <- setNames(fitA$fitted, names(pheno))
+        resid <- pheno - fitted
     }
     else { # binary phenotype
         # null fit
@@ -319,6 +327,7 @@ fit1 <-
         ind_lod <- ind_lodA - ind_lod0
 
         fitted <- stats::setNames(pA, names(pheno))
+        resid <- pheno - fitted
     }
 
     # names of coefficients
@@ -343,9 +352,9 @@ fit1 <-
         return(list(lod=lod, ind_lod=ind_lod,
                     coef=stats::setNames(fitA$coef, coef_names),
                     SE=stats::setNames(fitA$SE, coef_names),
-                    fitted=fitted))
+                    fitted=fitted, resid=resid))
     else
         return(list(lod=lod, ind_lod=ind_lod,
                     coef=stats::setNames(fitA$coef, coef_names),
-                    fitted=fitted))
+                    fitted=fitted, resid=resid))
 }
