@@ -11,17 +11,20 @@ plot_snpasso_and_genes <-
              colors=c("black", "red3", "green4", "blue3", "orange"),
              scale_pos=1, start_field="start", stop_field="stop",
              strand_field="strand", name_field="Name",
-             top_panel_prop=0.65, xlim=NULL, xaxt="s",
+             top_panel_prop=0.65, panel_prop=NULL, xlim=NULL, xaxt="s",
              xlab=NULL, main="", sub="", ...)
 {
+    if(is.null(panel_prop)) panel_prop <- c(top_panel_prop, 1-top_panel_prop)
+
     # 2 x 1 panels; adjust margins
     old_mfrow <- par("mfrow")
     old_mar <- par("mar")
     on.exit(par(mfrow=old_mfrow, mar=old_mar))
-    layout(rbind(1,2), heights=c(top_panel_prop, 1-top_panel_prop))
+    layout(rbind(1,2), heights=panel_prop)
     top_mar <- bottom_mar <- old_mar
     top_mar[1] <- 0.1
     bottom_mar[3] <- 0.1
+
 
     if(is.null(xlim)) xlim <- range(snpinfo$pos)
 

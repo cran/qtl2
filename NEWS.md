@@ -1,3 +1,67 @@
+## qtl2 0.28 (2021-10-11)
+
+### Major changes
+
+- The default colors for the Collaborative Cross (CC) have been changed to
+  a color-blind friendly palette. The original CC colors remain as
+  `CCorigcolors`; the previous default is now `CCaltcolors`. The new
+  colors are derived from the palette in [Wong 2011 Nature
+  Methods](https://doi.org/10.1038/nmeth.1618).
+
+- `plot_coefCC()` was revised to include `col=CCcolors` as an argument.
+  The default is the new color-blind friendly CC colors, but one can
+  now more easily use `col=CCaltcolors` or `col=CCorigcolors` to get a
+  different choice.
+
+- Added `plot_sdp()` to plot the strain distribution patterns of SNPs
+  using tracks of tick-marks for each founder strain. (Issue #163)
+
+- Added arguments `sdp_panel` and `strain_labels` to `plot_snpasso()`
+  so that you can include the `plot_sdp()` panel with the SNP
+  association results and/or the genes.
+
+### Minor changes
+
+- Added `replace_ids()` for a matrix or data frame (using the row
+  names as the individual IDs). (Issue #191)
+
+- Have `calc_het()` give an error if the input are for allele dosages.
+  (Issue #190)
+
+- Sneaky change in `ind_ids()` makes it apply to `calc_genoprob` and
+  `fst_genoprob` objects. I'm not sure how to document this. (Issue #189)
+
+- The output of `est_herit()` now includes the residual SD as an
+  attribute, `"resid_sd"`. (Issue #16)
+
+- Implemented a cross type `"hsf1"` that is similar to `"dof1"`, for a
+  cross between an 8-way HS individual and a 9th strain. (Issue #149)
+
+### Bug fixes
+
+- `calc_kinship()` died with cryptic error if genotype probabilities
+  didn't have a names attribute; now using `seq_len(probs)`.
+
+- Give better error messages in `est_map()`, `viterbi()`, and
+  `sim_geno()` if the cross is missing the genetic map.
+
+- Fixed Issue #194: `calc_genoprob()` was taking chromosome names from
+  `cross$gmap` which might have been missing; now using
+  `names(cross$geno)`.
+
+- Fixed Issue #195: in `create_snpinfo()`, drop markers that are
+  non-informative.
+
+- Fixed Issue #196, that `step()` returns `-Inf` rather than `NaN` for
+  general AIL. This had to do with the handling of `-Inf` in `addlog()`.
+
+- In `fit1()` and `scan1coef()`, wasn't grabbing the `...` arguments.
+  properly.
+
+- Ugly c++ revisions to avoid clang UBsan warnings on CRAN.
+  (Issue #169)
+
+
 ## qtl2 0.24 (2020-12-16)
 
 ### Major changes
@@ -66,7 +130,7 @@
 
 - Fixed Issue #176, that `guess_phase()` doesn't work with cross type
   `"genail"`. Needed to define `phase_known_crosstype` as `"genailpk"` in
-  [`cross_genail.h`](https://github.com/rqtl/qtl2/blob/master/src/cross_genail.h)
+  [`cross_genail.h`](https://github.com/rqtl/qtl2/blob/main/src/cross_genail.h)
   because otherwise `is_phase_known()` will return TRUE.
 
 

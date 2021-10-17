@@ -277,7 +277,7 @@ struct lmm_fit fitLMM(const VectorXd& Kva, const VectorXd& y, const MatrixXd& X,
     args.reml = reml;
     args.logdetXpX = logdetXpX_val;
 
-    const double hsq = qtl2_Brent_fmin(0.0, 1.0, (double (*)(double, void*)) negLL, &args, tol);
+    const double hsq = lmm_Brent_fmin(0.0, 1.0, negLL, &args, tol);
     result = calcLL(hsq, Kva, y, X, reml, logdetXpX_val);
     result.hsq = hsq;
 
@@ -336,14 +336,17 @@ List Rcpp_fitLMM_mat(const NumericVector& Kva, const NumericMatrix& Y,
 
     NumericVector hsq(nphe);
     NumericVector loglik(nphe);
+    NumericVector sigmasq(nphe);
 
     for(int i=0; i<nphe; i++) {
         const struct lmm_fit result = fitLMM(eKva, eY.col(i), eX, reml, check_boundary,
                                              logdetXpX, tol);
         hsq[i] = result.hsq;
         loglik[i] = result.loglik;
+        sigmasq[i] = result.sigmasq;
     }
 
     return List::create(Named("hsq") = hsq,
-                        Named("loglik") = loglik);
+                        Named("loglik") = loglik,
+                        Named("sigmasq") = sigmasq);
 }
