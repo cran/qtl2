@@ -1,3 +1,42 @@
+## qtl2 0.30 (2022-12-02)
+
+### Major changes
+
+- For DOF1 and HSF1, revised the results of `calc_genoprob()` for the
+  X chromosome, so that it just keeps track of the chromosome from the
+  DO/HS parent. In males, we are assuming that the DO/HS parent is the
+  mother.
+
+### Minor changes
+
+- Added dependency on version of Rcpp (>= 1.0.7)
+
+- Revised `genoprob_to_alleleprob()` to work with DOF1 and
+  HSF1. `plot_onegeno()` should also work now in these cases.
+  (Issue #140 and Issue #141)
+
+### Bug fixes
+
+- Revised `predict_snpgeno()` to work for DOF1 and HSF1 populations.
+
+- Now give a better error message in `genoprob_to_snpprob()` if `snpinfo`
+  is missing the `sdp` column (Issue #207).
+
+- In `read_csv()`, now give warnings if there are duplicate column names
+  or duplicate row names in the file.
+
+- In `read_cross2()`, moved the warning regarding the number of alleles
+  to before the alleles object gets corrected (Issue #209).
+
+- Now issue a warning message if founder genotypes are included but not
+  used (Issue #211).
+
+- The treatment of the male X chromosome in DOF1 and HSF1 was
+  incorrect. We're now assuming that the DO or HS parent was the
+  mother in the F1 cross, in which case males will be hemizygous for
+  one of the DO/HS founder alleles.
+
+
 ## qtl2 0.28 (2021-10-11)
 
 ### Major changes

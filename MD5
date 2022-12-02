@@ -1,6 +1,6 @@
-16327153bf5f5c4a06581f38e4069bce *DESCRIPTION
+f35fd678d41d2cc8f342437df8a9f3e1 *DESCRIPTION
 39b487e82a0e46abfc29b8898000c6be *NAMESPACE
-91940a5a1161b6aa129c5dc367f02a8f *NEWS.md
+a196f32454dae866e98f599875222827 *NEWS.md
 9abf947d1897a206126b366aa6de01e3 *R/CCcolors-data.R
 fb1f783101a84e5c2068d273808fe06e *R/RcppExports.R
 fc665fa6ecfe6bf80c6b3120ddaadd22 *R/add_threshold.R
@@ -25,7 +25,7 @@ b2af37e0bdbc0dda55b06edaa7bd1be8 *R/cbind_expand.R
 98555e234a77cf1755b6e73c3f016cd2 *R/cbind_scan1.R
 0c504d0bad6022f9b0de422f2fdf7155 *R/cbind_sim_geno.R
 906d9fa60218cb0c19de53579c971c4d *R/cbind_viterbi.R
-5804421847520d930604b3a5765e4b91 *R/check_cross2.R
+102db631df6320b1c0ec2a6ecdc675ff *R/check_cross2.R
 7d0bed9c7399d9a90fc12b34b64aab59 *R/chisq_colpairs.R
 7a1b44e2b154dfa7b87e75c2d278fa25 *R/chr_lengths.R
 c25dd04ccb82ccc00f0452f6515edf9f *R/clean.R
@@ -60,7 +60,7 @@ c2e8f7e67d6bb34856f843a6b88c26aa *R/find_peaks_and_bayesint.R
 716bcc4240f3024fdea39d83a2018a45 *R/fit1_pg.R
 ea4a950ee935bf8e3de2123acf095c22 *R/genoprob_col2drop.R
 6bd291df776b89a950f798f9a58213c1 *R/genoprob_to_alleleprob.R
-1f9b6337e40de06165ec47a68ecb905f *R/genoprob_to_snpprob.R
+7c2e378455d9f0a547c454921bffb194 *R/genoprob_to_snpprob.R
 cf58246355fa1179af5689de594030ec *R/get_common_ids.R
 52b104e46e9dafd7517329def9b6f75c *R/get_x_covar.R
 21306043c2408d365d553684b99e5c28 *R/guess_phase.R
@@ -96,7 +96,7 @@ e6181492d9b8946d4207b73a8ef7a43d *R/plot_sdp.R
 6be679df66b57c9cc9791192d762a808 *R/plot_snpasso_and_genes.R
 06e752ca378c37fb0ef940c9831b1917 *R/plot_snpasso_and_sdp.R
 40234fbf4104ab50c91bac884e744f62 *R/plot_snpasso_sdp_and_genes.R
-97644b1db4c44106ac88c031326085a6 *R/predict_snpgeno.R
+840c6989200853710ce6858adea16391 *R/predict_snpgeno.R
 9ae935f8c012f35e7d993f1064b34b6e *R/probs_to_grid.R
 1159c2771b85e8dbc66e9daa287b2a6f *R/pull_genoprobint.R
 c200051683c8a29c7cf2fdc074b2bc49 *R/pull_genoprobpos.R
@@ -108,8 +108,8 @@ dae8acb5809e16d1fe967e2267e318e6 *R/rbind_scan1.R
 e3cac3fb23c5cd31f4996619be66f3cb *R/rbind_sim_geno.R
 1e7efa7949b76053409d8e271b33c39c *R/rbind_viterbi.R
 be2d32154331c32b72ad57bc4cfdcd30 *R/rcbind_scan1perm.R
-598ee721d9541087ee9fe62f2335fc43 *R/read_cross2.R
-b9f2994ca5a75529ea9fa58803df6f80 *R/read_csv.R
+aac5be4731ef35bbf7f733e61c50caab *R/read_cross2.R
+089705fc840e22cf47ef12e5d54d8483 *R/read_csv.R
 e2782d676910880b02945b03d9f6ac64 *R/read_csv_numer.R
 cb7995dd7efa210fd2b1944069d42c7b *R/read_pheno.R
 fe57544b48e98124c0146368e9baf73e *R/recode_snps.R
@@ -132,7 +132,7 @@ e08407003469cd48e73719a9c35d8a50 *R/scan1max_pg.R
 b06facdd4434487c0ee289e1f78437be *R/scan1snps.R
 432d4272a116cad2b08dd598090d916a *R/sim_geno.R
 f8425ff34d28f455c89c62021d0a58b9 *R/sim_geno2.R
-b189851e40be4b0c43bea80e06ba7de8 *R/snpprob_from_cross.R
+1e8a36ce07857b184b66c6320da67aa1 *R/snpprob_from_cross.R
 99101617a12aca08629ec067c0bcb07b *R/subset_calc_genoprob.R
 eae9c4fc9e5009bd41c638087fade04f *R/subset_chr.R
 da22e168ea9b1be840588a284681e2ac *R/subset_cross2.R
@@ -152,11 +152,11 @@ d966b62fbff6a94e5d075bc3ffb3ce85 *R/viterbi2.R
 6540c33645b3051f932343c330d53195 *R/write_control_file.R
 5f342e69d72e1f81eb234a83202f21c7 *R/xpos_scan1.R
 791a49f22998730dcd05951a1225ecbc *R/zip_datafiles.R
-2635068c4b0e96db456962e2b75af49d *README.md
-39f6eb1e7d61e3e20b7377bed4855480 *build/partial.rdb
-9b7f189ac4ab5ef07d92983491dadd6c *data/CCaltcolors.RData
-54ccfff4ef377a7db99c3646a11228cf *data/CCcolors.RData
-431a4e2df22fd54f8d2fedb25d8f53c2 *data/CCorigcolors.RData
+fbf3d35818ff4a31088be842e375682c *README.md
+ea124a494ad7922985532ad3b308e4d5 *build/partial.rdb
+7ac7ea2d0f1aaa561fc7beebcab3cf76 *data/CCaltcolors.RData
+60eadbd570a8023ad2693e8a90ed6a08 *data/CCcolors.RData
+e8bc4499566a30a2cc643962f94ae0e2 *data/CCorigcolors.RData
 bfc6e61b880178088b528634a5c04110 *inst/CITATION
 6ec418a4bceddbaed4880e487bb35a51 *inst/extdata/ReadMe.md
 f7de8f12e5490dbfe7b860ae6c0897b6 *inst/extdata/cc_variants_small.sqlite
@@ -171,7 +171,7 @@ d56e2025a3ce7641e5fd5e9bcdec91ed *inst/scripts/create_mousegenes_mgi.R
 1fdbcc69cb3ffb04f03bd0d7ef3e9924 *inst/scripts/create_mousegenes_small.R
 3b4a6d98125f3222260f91b720313c55 *man/CCcolors.Rd
 8fcf30d0557c647456caf95d4be40f67 *man/add_threshold.Rd
-5badb3da734890bed3160129cad5d1ce *man/basic_summaries.Rd
+d770c545ef53a3b3f40354b1195ee7e4 *man/basic_summaries.Rd
 eb8dc8a13814092032bebc7d10fac166 *man/batch_cols.Rd
 0195df40d01e9e61c55f7842a9f30eb5 *man/batch_vec.Rd
 bd7751a7f8652725d4004a049d05bdcd *man/bayes_int.Rd
@@ -237,7 +237,7 @@ ab6a62038fd84060280d636b72a6ac64 *man/max_compare_geno.Rd
 7ae45aa3503d01c8d18b82c4763cd6f4 *man/max_scan1.Rd
 4fcc3e7e6483c076801ee0f46fc27187 *man/maxlod.Rd
 34abcde9f892abeaa5b16956a944e7ec *man/maxmarg.Rd
-1d28f70f6ff3dc5635c936631e439812 *man/n_missing.Rd
+54fde11dd225f8588ce0e24f6d41bf40 *man/n_missing.Rd
 cb8f6da825211b55b847d81885a63792 *man/plot_coef.Rd
 4be6f530e0b16d4f3af655a4510ff861 *man/plot_compare_geno.Rd
 1bb11416957763fac87f8ff7368b8395 *man/plot_genes.Rd
@@ -257,8 +257,8 @@ f354e4a98383359b0d89aab5b5edefbb *man/probs_to_grid.Rd
 89766a7cc0c483527e471e80f258513e *man/pull_genoprobint.Rd
 e512c7a1769059754245beb3277cb26b *man/pull_genoprobpos.Rd
 021b247d9ac88f46af913dee529715db *man/pull_markers.Rd
-3df79db33fc559dc42a821ccb4d0adc2 *man/qtl2-internal.Rd
-9c46ab612af97522055c129e5f3baf34 *man/qtl2-package.Rd
+3b463503f98d26d9f8b695909f9784ac *man/qtl2-internal.Rd
+691aa7521330112913a80ebdbb0cd230 *man/qtl2-package.Rd
 368c3aa416c85c61239b1ce2d2e7d03d *man/qtl2version.Rd
 8577913ed3c9bffddba6dbc4e5b7b348 *man/rbind.calc_genoprob.Rd
 9c991c1b900b1f095274fd8309b69a80 *man/rbind.scan1.Rd
@@ -272,7 +272,7 @@ acee82da6b35ab30b85958abefc0ec6c *man/read_csv_numer.Rd
 73428f9f2a2fe8cade5c0eb67d6e4fc3 *man/recode_snps.Rd
 db39116a2358e2f5b5ec84350fa65b9b *man/reduce_map_gaps.Rd
 1414f466ad7fa1d8650b4f7074b68cca *man/reduce_markers.Rd
-166ae9134156fa03616c681b15d577fc *man/replace_ids.Rd
+712b917aa5c2d377fcc10f5270b2d56c *man/replace_ids.Rd
 a6890494cee22d2294ffd11b30e7e679 *man/scale_kinship.Rd
 caa6137a6a8f1442afd279bf809cbe06 *man/scan1.Rd
 44d3d4daab21cbb6e43307a71a80166d *man/scan1blup.Rd
@@ -341,7 +341,7 @@ b828201bf6f3a14d30d0b0d5739d50f5 *src/cross_bc.h
 fa54fe035c13c810ee95ace2d49fd9bb *src/cross_do.h
 46ffd995b43903c762ff2ba5c66a3b8f *src/cross_do_util.cpp
 7b5f482ef768fb602ef6c4326ca917fd *src/cross_do_util.h
-431de8b9aa220b757ce8b098323a5f27 *src/cross_dof1.cpp
+604d99c7378ac039b9a3183c1599eac9 *src/cross_dof1.cpp
 448dafb3d2c96eb5497cd10b7a5a2be8 *src/cross_dof1.h
 3b172d8e08d12325b5672789e9f0d249 *src/cross_dopk.cpp
 0c0a8932082f9c45354300a037ca4fa1 *src/cross_dopk.h
@@ -357,7 +357,7 @@ b940954f71d1e9a8a8240c041d6a1152 *src/cross_genril.cpp
 4edfaeffb359cb82d8784548d5aaf5a8 *src/cross_haploid.h
 1f7d5019be28f8958e9cb0138c5f7725 *src/cross_hs.cpp
 2a7be1c7a04f9e3b8f482a512bee46df *src/cross_hs.h
-c5e4a331a092db0217d184089f6c40c7 *src/cross_hsf1.cpp
+9c4d76eff670ecbb2dad6cf941a3a34e *src/cross_hsf1.cpp
 67a97c1a4ec84c56f5a6d0a659dc596b *src/cross_hsf1.h
 e987825cf37a8e6a64ee357fb6b0071c *src/cross_hspk.cpp
 73debcb882840fb00fc3094e3e521285 *src/cross_hspk.h
@@ -478,10 +478,10 @@ e5ae2150735ae0a20d78554c4f5e63ac *tests/testthat/_snaps/plot_peaks/plot-peaks.sv
 a27ac41fd6bd031c6a0d832b63b1f746 *tests/testthat/_snaps/plot_scan1/plot-scan1-onechr.svg
 b053523b5e48fe17dbad1991ccac5a55 *tests/testthat/_snaps/plot_scan1/plot-scan1.svg
 be3ae7ca932a809624eff28cefa7708d *tests/testthat/_snaps/plot_sdp/plot-sdp.svg
-629ab97e04634dfcfc9bacdb472b1010 *tests/testthat/helper-utils.R
+0b7c843fc8ef09f7f3b9a181570a675b *tests/testthat/helper-utils.R
 2b612af96dae3a7e3c53c03a4e62ea50 *tests/testthat/test-addlog.R
 dd97514b300ef45e81d7520090ac45e0 *tests/testthat/test-align_scan1_map.R
-8a9535c464413c3e91cd6fa7c8609833 *tests/testthat/test-arrange_genes.R
+6489850f41a71238afcea5676d21fac5 *tests/testthat/test-arrange_genes.R
 6b77c488709aa4a69ddf5b6be330fbd7 *tests/testthat/test-assign_allele_codes.R
 7b37f1e928bf5c73ee99fa2b4b95a63d *tests/testthat/test-basic_summaries.R
 5b59cdecb65c5e48cb9e1b37ac443cf0 *tests/testthat/test-batch_cols.R
@@ -497,7 +497,7 @@ b98a1a92cd6b8a15430d3d46e31045e2 *tests/testthat/test-calc_grid.R
 dd353d43181a6e2f22be829947183cdc *tests/testthat/test-calcgenoprob.R
 7d1bb064f0ef57a66341b4c2b16bb48d *tests/testthat/test-calcgenoprob2.R
 baccdfcc1b61f18cfd159b09c3d08c41 *tests/testthat/test-cbind_expand.R
-aeb41b86ce3bc7ee569800efbf2157a0 *tests/testthat/test-check_cross.R
+96382049aa00240ba1b8addacea657d9 *tests/testthat/test-check_cross.R
 66f7680524766f08d25d8f0eb59e5e10 *tests/testthat/test-chisq_colpairs.R
 57bc32165a70bdff4d52914861b504eb *tests/testthat/test-chr_lengths.R
 5ebfe499338e00c3cecefc72c9f40402 *tests/testthat/test-clean_genoprob.R
@@ -542,7 +542,7 @@ a4c68ec8b780e8329248f53d28b4c97e *tests/testthat/test-guess_phase.R
 f93096337bfa35e6ce61ec6aa6ce4c83 *tests/testthat/test-hmmbasic-dh.R
 4f5513de49d0f9f8104696190b0e87a8 *tests/testthat/test-hmmbasic-dh6.R
 beab1f692441b7a2c327f2956bf9f241 *tests/testthat/test-hmmbasic-do.R
-244a54b77de3e39e180c885bde587398 *tests/testthat/test-hmmbasic-dof1.R
+35401b84e45565e8437241cab1b7df0c *tests/testthat/test-hmmbasic-dof1.R
 a7dfe551a304637dc025341e7229d110 *tests/testthat/test-hmmbasic-dopk.R
 357bd0bc349707e227af9570b9547966 *tests/testthat/test-hmmbasic-f2.R
 638bae6c806527c92fdcb89b86207971 *tests/testthat/test-hmmbasic-f2pk.R
@@ -550,7 +550,7 @@ a7dfe551a304637dc025341e7229d110 *tests/testthat/test-hmmbasic-dopk.R
 fb7385e21fc2d716b6570ed24edfa5bb *tests/testthat/test-hmmbasic-genril.R
 db2bf85cd867e4cf43e78c553d4a7f84 *tests/testthat/test-hmmbasic-haploid.R
 23c162d4ec38a39077b8e6701935f5f4 *tests/testthat/test-hmmbasic-hs.R
-fb232d1ddc9a615a96da70a3d80da0ee *tests/testthat/test-hmmbasic-hsf1.R
+ba0599435c4c00f889f7aa668aeaab3f *tests/testthat/test-hmmbasic-hsf1.R
 84f729144ad78688e525f83e4a12b5a5 *tests/testthat/test-hmmbasic-hspk.R
 45ffe76b76942fda58d1d4d01e6ceab4 *tests/testthat/test-hmmbasic-magic19.R
 591ff99fc4b2433b7afd7df58926973c *tests/testthat/test-hmmbasic-riself.R
@@ -581,7 +581,7 @@ e5563a6f5c75ae7dfdb313fffa8d91f9 *tests/testthat/test-plot_genes.R
 cd39ae2eedda886a98d2830256527ee9 *tests/testthat/test-plot_pxg.R
 ab70eaea312a98b0f10c2c81d3e063a9 *tests/testthat/test-plot_scan1.R
 ec31db4fa23ec9f9953ede8ecf69d96d *tests/testthat/test-plot_sdp.R
-a3190d525f6c52e53aaf15a23364f25b *tests/testthat/test-predict_snpgeno.R
+35065a58f22dd99a9e52d3918fc3732b *tests/testthat/test-predict_snpgeno.R
 7cebea261457329a21536c8046423990 *tests/testthat/test-probs_to_grid.R
 99aaf3a2236909ea6e18be06ded26fdc *tests/testthat/test-pseudomarkermap.R
 1d0cb68e2e8477c811ebe72296cdcfb2 *tests/testthat/test-pull_genoprobint.R
@@ -612,7 +612,7 @@ f2fb20b8340611292ae81afa6fad14da *tests/testthat/test-scan1coef_binary.R
 13f38cbd09a86121e335cfe3153412d0 *tests/testthat/test-scan1snps.R
 6d57912d41e8296ced9467e6a022ce81 *tests/testthat/test-scanhk.R
 8dc92f18ce27726635d870e2f3c3881c *tests/testthat/test-simgeno.R
-46a47be5fbf87a245694b33227939729 *tests/testthat/test-snpprobs.R
+62977c07a67e7556c2cc3d86fc8549d6 *tests/testthat/test-snpprobs.R
 9b8c09ea994c10a3193afbea137acd09 *tests/testthat/test-subset.R
 9c54c48f0bd9737c2b3f263948e5d066 *tests/testthat/test-subset_kinship.R
 521d49369593d368f47d18c535fec4cc *tests/testthat/test-subset_scan1.R

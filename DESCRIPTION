@@ -1,6 +1,6 @@
 Package: qtl2
-Version: 0.28
-Date: 2021-10-11
+Version: 0.30
+Date: 2022-12-02
 Title: Quantitative Trait Locus Mapping in Experimental Crosses
 Description: Provides a set of tools to perform quantitative
     trait locus (QTL) analysis in experimental crosses. It is a
@@ -18,7 +18,7 @@ Copyright: Code for Brent's method for univariate function optimization
         and Ross Ihaka, Copyright 2003-2004 The R Foundation, Copyright
         1998-2014 The R Core Team).
 Depends: R (>= 3.1.0)
-Imports: Rcpp (>= 0.12.12), yaml (>= 2.1.13), jsonlite (>= 0.9.17),
+Imports: Rcpp (>= 1.0.7), yaml (>= 2.1.13), jsonlite (>= 0.9.17),
         data.table (>= 1.10.4-3), parallel, stats, utils, graphics,
         grDevices, RSQLite
 Suggests: testthat, devtools, roxygen2, vdiffr, qtl
@@ -29,8 +29,8 @@ LazyData: true
 Encoding: UTF-8
 ByteCompile: true
 LinkingTo: Rcpp, RcppEigen
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 NeedsCompilation: yes
-Packaged: 2021-10-11 15:23:54 UTC; kbroman
+Packaged: 2022-12-02 13:22:29 UTC; kbroman
 Repository: CRAN
-Date/Publication: 2021-10-17 20:20:02 UTC
+Date/Publication: 2022-12-02 15:10:02 UTC
