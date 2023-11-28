@@ -1,3 +1,30 @@
+## qtl2 0.34 (2023-11-28)
+
+### Major changes
+
+- Changed `read_csv()` to `fread_csv()` to avoid conflict with
+  `readr::read_csv()`. (Issue #223)
+
+- Similarly, changed `read_csv_numer()` to `fread_csv_numer()`.
+
+- Added function `fund_dup_markers()`, for identifying subsets of
+  markers with identical genotype data. This is a port of
+  `qtl::findDupMarkers()`.
+
+### Minor changes
+
+- Have `calc_het()` stop with an error if the genotypes have labels
+  that aren't two characters, and add an explanation of this in the
+  help info. (Issue #220)
+
+- More fully explain the use of weights in `est_herit()` and
+  `scan1()`. (Issue #221)
+
+### Bug fixes
+
+- Deal with new compiler warning on CRAN. (Issue #230)
+
+
 ## qtl2 0.32 (2023-04-21)
 
 ### Major changes
