@@ -1,6 +1,6 @@
-da53667b206541948050a87226c6cd4f *DESCRIPTION
+d41fbf9f9b3b000c129ce70dfba5f46d *DESCRIPTION
 fcc97450773d2f23dab5a1ba631d30c3 *NAMESPACE
-2c99e7f63d5d1c1091e57c8ccefeb349 *NEWS.md
+8e0bb478ef19c5dadd913a9678768cf5 *NEWS.md
 9abf947d1897a206126b366aa6de01e3 *R/CCcolors-data.R
 8fc2e2c05447f7d11237d0fdb75c4761 *R/RcppExports.R
 fc665fa6ecfe6bf80c6b3120ddaadd22 *R/add_threshold.R
@@ -68,7 +68,7 @@ cf58246355fa1179af5689de594030ec *R/get_common_ids.R
 52b104e46e9dafd7517329def9b6f75c *R/get_x_covar.R
 21306043c2408d365d553684b99e5c28 *R/guess_phase.R
 d2b34413bdd08bbbb89a1d3a9039ecc9 *R/hmm_util.R
-e71eaee271b882a86503fe5f22b4e5fa *R/index_snps.R
+17dbe36f5d90a941fb03359c12f5d2b5 *R/index_snps.R
 b5d3ad9fe70e28367b2d98b4ba407f6a *R/insert_pseudomarkers.R
 831df39798ffebbd0a44e7bd6901b0fd *R/interp_genoprob.R
 814049932cb8973f46d72806cb7ccdf1 *R/interp_map.R
@@ -97,8 +97,8 @@ a580f7325ae8eeb8b5016719c9df1629 *R/plot_scan1.R
 e6181492d9b8946d4207b73a8ef7a43d *R/plot_sdp.R
 7d8c98d8e92c1cd373579e41d09b7b5d *R/plot_snpasso.R
 6be679df66b57c9cc9791192d762a808 *R/plot_snpasso_and_genes.R
-06e752ca378c37fb0ef940c9831b1917 *R/plot_snpasso_and_sdp.R
-40234fbf4104ab50c91bac884e744f62 *R/plot_snpasso_sdp_and_genes.R
+9b4f65b7bb5608b6f21caea5af5da6fc *R/plot_snpasso_and_sdp.R
+fb9bd1739274da1e31a3654680ac3df2 *R/plot_snpasso_sdp_and_genes.R
 840c6989200853710ce6858adea16391 *R/predict_snpgeno.R
 9ae935f8c012f35e7d993f1064b34b6e *R/probs_to_grid.R
 1159c2771b85e8dbc66e9daa287b2a6f *R/pull_genoprobint.R
@@ -130,7 +130,7 @@ e6d122a7544e4ee41e92be42ee134013 *R/scan1coef.R
 e08407003469cd48e73719a9c35d8a50 *R/scan1max_pg.R
 4bca03b0eaac0350c05a64d8dbcd93f9 *R/scan1perm.R
 021d11d5513b826962dae71434b094b9 *R/scan1perm_pg.R
-b06facdd4434487c0ee289e1f78437be *R/scan1snps.R
+69d69a50bbb209ecc4b2695dfe8ea3fc *R/scan1snps.R
 432d4272a116cad2b08dd598090d916a *R/sim_geno.R
 f8425ff34d28f455c89c62021d0a58b9 *R/sim_geno2.R
 545b974a81ae0352ee502ef2a7e3a681 *R/smooth_gmap.R
@@ -157,10 +157,10 @@ d966b62fbff6a94e5d075bc3ffb3ce85 *R/viterbi2.R
 5f342e69d72e1f81eb234a83202f21c7 *R/xpos_scan1.R
 791a49f22998730dcd05951a1225ecbc *R/zip_datafiles.R
 67b0d7c36d18d62eb16e28746478e245 *README.md
-8faf250d78a120ba4c7ea2186efddd24 *build/partial.rdb
-e67a37b8bc1b302e746cd852dcbd5165 *data/CCaltcolors.RData
-1e71c20f34651a80e1a49df525b76a01 *data/CCcolors.RData
-fc8b7d723f460fee0c3986a0a9a4e9b7 *data/CCorigcolors.RData
+f61db891eb928123aba4412ca322f508 *build/partial.rdb
+72a55b2282e6b6c236b4c179612a03e2 *data/CCaltcolors.RData
+870865217ad6147fb37d6a0b8a6fd3ec *data/CCcolors.RData
+29849c6978602b2f79c51eb5fbc963de *data/CCorigcolors.RData
 469bc104de5c39f87962a67b53801fed *inst/CITATION
 6ec418a4bceddbaed4880e487bb35a51 *inst/extdata/ReadMe.md
 f7de8f12e5490dbfe7b860ae6c0897b6 *inst/extdata/cc_variants_small.sqlite
@@ -611,7 +611,7 @@ e811fa5d165672713489692d447ea971 *tests/testthat/test-read_issues.R
 242f4dcc699be8f101fcc43acb515504 *tests/testthat/test-scale_kinship.R
 2203d8e00a63c4a4516d052891cdd9de *tests/testthat/test-scan1.R
 af6f446b66174c635f8a0db48bf2d727 *tests/testthat/test-scan1_binary.R
-c743e1eaa2b6d316ab1e4231c189692a *tests/testthat/test-scan1_pg.R
+82daac802d7be266ae2a6b4374f65b01 *tests/testthat/test-scan1_pg.R
 231fcfadd06c89849631a27d35002ef9 *tests/testthat/test-scan1blup.R
 3f4bd324d970db368893c15b98051dbd *tests/testthat/test-scan1coef.R
 f2fb20b8340611292ae81afa6fad14da *tests/testthat/test-scan1coef_binary.R
@@ -619,7 +619,7 @@ f2fb20b8340611292ae81afa6fad14da *tests/testthat/test-scan1coef_binary.R
 1491b58156962c80bd60d52dcb8c1c6f *tests/testthat/test-scan1max.R
 51bf788ac31ffa93d057eba2430ac68f *tests/testthat/test-scan1perm.R
 3be3f9da0377cc698656587dc7c93686 *tests/testthat/test-scan1perm_binary.R
-d96a93ee520ccd0341abf83a454dde32 *tests/testthat/test-scan1snps.R
+c48804624decdba6e9057f0c2f1fbd04 *tests/testthat/test-scan1snps.R
 6d57912d41e8296ced9467e6a022ce81 *tests/testthat/test-scanhk.R
 8dc92f18ce27726635d870e2f3c3881c *tests/testthat/test-simgeno.R
 a2fef44d2b845ff7aceef3f1ef6ae048 *tests/testthat/test-smooth_gmap.R
