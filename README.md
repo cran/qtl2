@@ -14,7 +14,7 @@ Also see the related packages,
 [qtl2convert](https://github.com/rqtl/qtl2convert) (for converting
 data among the R/qtl2, DOQTL, and R/qtl formats),
 [qtl2fst](https://github.com/rqtl/qtl2fst) (for storing genotype
-probabilities on disk), and [qtl2ggplot](https://github.com/byandell/qtl2ggplot)
+probabilities on disk), and [qtl2ggplot](https://github.com/byandell-sysgen/qtl2ggplot)
 (for [ggplot2](https://ggplot2.tidyverse.org/)-based data visualizations).
 
 ---
@@ -56,7 +56,7 @@ To cite R/qtl2 in publications, use:
 > Yandell BS, Churchill GA (2019)
 > R/qtl2: software for mapping quantitative trait loci with
 > high-dimensional data and multi-parent populations.
-> [Genetics](https://academic.oup.com/genetics) 211:495-502
+> Genetics 211:495-502
 > [doi:10.1534/genetics.118.301595](https://doi.org/10.1534/genetics.118.301595)
 
 ---

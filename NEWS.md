@@ -1,3 +1,20 @@
+## qtl2 0.38 (2025-06-02)
+
+### Minor changes
+
+- In `scan1()` with a polygenic effect (that is, when `kinship` is
+  provided) and when doing multi-core calculations, break up positions
+  into intervals for more fine-grained use of the multiple cores.
+
+- Added function `compare_founder_geno()` which is like
+  `compare_geno()`, but comparing the founder genotypes.
+
+### Bug fixes
+
+- Fixed seg fault that occurs in `read_cross2()` for multi-way RIL
+  if cross info is misspecified or has missing values.
+
+
 ## qtl2 0.36 (2024-05-13)
 
 ### Minor changes
@@ -536,7 +553,7 @@
   when covariates and other data are not numeric.
 
 - Fixed `pull_genoprobpos()` so it will work with
-  [qtl2feather](https://github.com/byandell/qtl2feather)
+  [qtl2feather](https://github.com/byandell-sysgen/qtl2feather)
   (and [qtl2fst](https://github.com/rqtl/qtl2fst)).
 
 - In `plot_genes()`, if `xlim` is provided as an argument, subset the
