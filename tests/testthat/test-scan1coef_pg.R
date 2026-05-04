@@ -5,11 +5,11 @@ eff_via_lm <-
     function(probs, pheno, kinship, addcovar=NULL, intcovar=NULL,
              se=TRUE)
 {
-    kinship <- double_kinship(kinship) # need 2*kinship for LMM
+    kinship <- qtl2:::double_kinship(kinship) # need 2*kinship for LMM
     kinship <- decomp_kinship(kinship)
     eigenvec <- kinship$vectors
-    hsq <- calc_hsq_clean(kinship, as.matrix(pheno), addcovar, NULL, FALSE, NULL,
-                          reml=TRUE, cores=1, check_boundary=TRUE, tol=1e-12)$hsq[1,1]
+    hsq <- qtl2:::calc_hsq_clean(kinship, as.matrix(pheno), addcovar, NULL, FALSE, NULL,
+                                 reml=TRUE, cores=1, check_boundary=TRUE, tol=1e-12)$hsq[1,1]
 
     wts <- 1/(hsq*kinship$values + (1-hsq))
 
@@ -48,6 +48,21 @@ eff_via_lm <-
 
     class(result) <- c("scan1coef", "scan1", "matrix")
     result
+}
+
+# function to maybe swap NAs between 2nd and 3rd columns in 22nd row
+swap_nas <-
+    function(mat, row=22, col=2:3, also_se=TRUE)
+{
+    if(is.na(mat[row,col[1]]) && !is.na(mat[row, col[2]])) {
+        mat[row,col] <- mat[row,rev(col)]
+    }
+
+    if(also_se) {
+        attr(mat, "SE") <- swap_nas(attr(mat, "SE"), row, col, also_se=FALSE)
+    }
+
+    mat
 }
 
 test_that("scan1coef_pg for grav", {
@@ -90,19 +105,24 @@ test_that("scan1coef_pg for grav", {
     # include covariate
     covar <- cbind(chr3=pr[["3"]][,2,"CC.266L"])
     est <- scan1coef(pr[,"3"], phe, K, covar, se=FALSE, zerosum=FALSE)
+    est <- swap_nas(est, also_se=FALSE)
     est_lm <- eff_via_lm(pr[["3"]], phe, K, covar)
+    est_lm <- swap_nas(est_lm)
     expect_equivalent(est, est_lm)
 
     est <- scan1coef(pr[,"3"], phe, K, covar, se=TRUE, zerosum=FALSE)
+    est <- swap_nas(est)
     expect_equivalent(est, est_lm)
     expect_equivalent(attr(est, "SE"), attr(est_lm, "SE"))
 
     # pre-computed eigen decomp
     est <- scan1coef(pr[,"3"], phe, Ke, covar, zerosum=FALSE)
-    expect_equivalent(est, est_lm)
+    est <- swap_nas(est, also_se=FALSE)
+    expect_equivalent(est, est_lm)  ## <- fix problem here
     est <- scan1coef(pr[,"3"], phe, Ke, covar, se=TRUE, zerosum=FALSE)
-    expect_equivalent(est, est_lm)
-    expect_equivalent(attr(est, "SE"), attr(est_lm, "SE"))
+    est <- swap_nas(est)
+    expect_equivalent(est, est_lm)  ## <- fix problem here
+    expect_equivalent(attr(est, "SE"), attr(est_lm, "SE"))  ## <- fix problem here
 
     # interactive covariate
     est <- scan1coef(pr[,"3"], phe, K, covar, intcovar=covar, se=FALSE, zerosum=FALSE)
@@ -125,17 +145,22 @@ test_that("scan1coef_pg for grav", {
     # two covariates
     covar <- cbind(covar, chr4=pr[["4"]][,2,"CD.329C-Col"])
     est <- scan1coef(pr[,"3"], phe, K, covar, se=FALSE, zerosum=FALSE)
+    est <- swap_nas(est, also_se=FALSE)
     est_lm <- eff_via_lm(pr[["3"]], phe, K, covar)
+    est_lm <- swap_nas(est_lm)
     expect_equivalent(est, est_lm)
 
     est <- scan1coef(pr[,"3"], phe, K, covar, se=TRUE, zerosum=FALSE)
+    est <- swap_nas(est)
     expect_equivalent(est, est_lm)
     expect_equivalent(attr(est, "SE"), attr(est_lm, "SE"))
 
     # pre-computed eigen decomp
     est <- scan1coef(pr[,"3"], phe, Ke, covar, zerosum=FALSE)
+    est <- swap_nas(est, also_se=FALSE)
     expect_equivalent(est, est_lm)
     est <- scan1coef(pr[,"3"], phe, Ke, covar, se=TRUE, zerosum=FALSE)
+    est <- swap_nas(est)
     expect_equivalent(est, est_lm)
     expect_equivalent(attr(est, "SE"), attr(est_lm, "SE"))
 

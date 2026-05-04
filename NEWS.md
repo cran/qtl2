@@ -1,3 +1,29 @@
+## qtl2 0.40 (2026-05-04)
+
+### New features
+
+- Added function `plot_ci()` for plotting a set of confidence
+  intervals, such as for the QTL effects at a fixed QTL position.
+
+### Minor changes
+
+- In `src/matrix.cpp`, change `Rf_error()` to `Rcpp:stop()`. (Issue #239)
+
+- Fixed a mistake in the documentation for `est_herit()` and
+  `scan1()`. The model we use has covariance matrix
+  sigma^2 [h^2 (2K) + (1-h^2)I] where K is the kinship matrix, I is
+  the identity matrix, h^2 is the residual heritability, and sigma^2
+  is the residual SD.
+
+- Export `dim.calc_genoprob` and `dimnames.calc_genoprob` to avoid some
+  warnings.
+
+- Small tweaks to tests of scan1coef with kinship matrix, to avoid
+  test failures.
+
+- Small change to an example for `plot_peaks()` to fix label placement.
+
+
 ## qtl2 0.38 (2025-06-02)
 
 ### Minor changes
@@ -39,7 +65,7 @@
 
 - Similarly, changed `read_csv_numer()` to `fread_csv_numer()`.
 
-- Added function `fund_dup_markers()`, for identifying subsets of
+- Added function `find_dup_markers()`, for identifying subsets of
   markers with identical genotype data. This is a port of
   `qtl::findDupMarkers()`.
 
@@ -215,7 +241,7 @@
   case an intercept column of 1's is used (Issue #151).
 
 - Updated mouse gene database with 2020-09-07 data from
-  [MGI](http://www.informatics.jax.org/downloads/mgigff3/archive/monthly/).
+  [MGI](https://www.informatics.jax.org/downloads/mgigff3/archive/monthly/).
 
 - Implemented Issue #184, to make `calc_het()` multi-core.
 
@@ -346,7 +372,7 @@
   character strings like `"ABC|DEFGH"`.
 
 - Updated mouse gene database with 2019-08-12 data from
-  [MGI](http://www.informatics.jax.org/downloads/mgigff3/archive/monthly/).
+  [MGI](https://www.informatics.jax.org/downloads/mgigff3/archive/monthly/).
 
 - `get_common_ids()` strips off names from output, just in case.
 
