@@ -94,3 +94,6 @@ plot_onegeno(ph, DOex$gmap, ind="256", shift=TRUE)
 }
 
 }
+\seealso{
+\code{\link[=plot_geno]{plot_geno()}}, \code{\link[=plot_genoprob]{plot_genoprob()}}
+}

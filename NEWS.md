@@ -1,3 +1,48 @@
+## qtl2 0.42 (2026-06-08)
+
+### New features
+
+- `fit1()` can return the full variance-covariance matrix of the
+  coefficients, with the argument `var=TRUE`. In this case, the `se`
+  argument is ignored, but the standard errors are also included.
+  The SEs for the case `zerosum=TRUE` have been corrected.
+
+- Added function `plot_cistrans()` for plotting the results of eQTL or
+  pQTL analyses, with gene location on the y-axis and QTL location on
+  the x-axis.
+
+- Added function `calc_hotspots()` for counting QTL in a sliding
+  window, to identify QTL hotspots, for example in eQTL/pQTL
+  experiments.
+
+- Added function `plot_scan1_heatmap()` for plotting scan1 results for
+  multiple traits as a heat map. Also added a function
+  `plot_colorscale()` for plotting a corresponding color scale.
+
+- Added function `plot_geno()` for plotting genome-wide genotypes for
+  multiple individuals.
+
+- Added functions for manipulating the "phased genotypes" output of
+  `guess_phase()`: `subset.phasedgeno()`, 1rbind.phasedgeno()`, and
+  `cbind.phasedgeno()`.
+
+- Added arguments `add` and `offset` to `plot_ci()`, so that you can
+  add additional sets of confidence intervals, shifted relative to
+  each other, to a plot.
+
+### Minor changes
+
+- Added a package logo.
+
+### Bug fixes
+
+- In `read_cross2()` and `read_pheno()`, for phenotype covariates,
+  convert columns to numeric if they look like numbers. (Issue #37)
+
+- If input to `find_peaks()` had no column names, no peaks would be
+  found. Added warning, plus a default set of column names.
+
+
 ## qtl2 0.40 (2026-05-04)
 
 ### New features

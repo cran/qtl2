@@ -15,6 +15,8 @@
 #' @return An object of class `"viterbi"`, like the input, with the
 #' selected individuals and/or chromosomes; see [viterbi()].
 #'
+#' @seealso [viterbi()], [cbind.viterbi()], [rbind.viterbi()]
+#'
 #' @export
 #' @keywords utilities
 #'

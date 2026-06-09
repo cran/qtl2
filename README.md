@@ -1,7 +1,8 @@
-### [R/qtl2](https://kbroman.org/qtl2/)
+### [R/qtl2](https://kbroman.org/qtl2/) <a href="https://kbroman.org/qtl2/"><img src="https://kbroman.org/qtl2/assets/pics/qtl2_logo.png" align="right" height="138" alt="R/qtl2 logo"/></a>
 
 [![R-CMD-check](https://github.com/rqtl/qtl2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rqtl/qtl2/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/qtl2)](https://cran.r-project.org/package=qtl2)
+[![r-universe badge](https://rqtl.r-universe.dev/qtl2/badges/version)](https://rqtl.r-universe.dev/qtl2)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3237772.svg)](https://doi.org/10.5281/zenodo.3237772)
 
 [Karl Broman](https://kbroman.org)
@@ -23,7 +24,24 @@ probabilities on disk), and [qtl2ggplot](https://github.com/byandell-sysgen/qtl2
 
 Install R/qtl2 from [CRAN](https://cran.r-project.org):
 
-    install.packages("qtl2")
+```r
+install.packages("qtl2")
+```
+
+Alternatively, install it from [R
+universe](https://rqtl.r-universe.dev):
+
+```r
+install.packages("qtl2", repos=c("https://rqtl.r-universe.dev",
+                                 "https://cloud.r-project.org"))
+```
+
+Or use [remotes](https://remotes.r-lib.org) to install it from its GitHub source:
+
+```r
+install.packages("remotes")
+remotes::install_github("rqtl/qtl2")
+```
 
 ---
 
