@@ -1,3 +1,23 @@
+## qtl2 0.44 (2026-07-06)
+
+### New features
+
+- Added a general genome scan function `scan1gen` which takes as input
+  an R function that calculates the log10 likelihood.
+
+- Added ability to use `scan1perm` with an alternative scan function
+  such as `scan1gen` or `scan1snps`.
+
+### Minor changes
+
+- Potential speed-up of `scan1()` and `scan1perm()`: the eigen library
+  has implemented least squares regression with multivariate outcomes.
+
+- For parallel computing, use of `cores=0` argument now results in all
+  but one core (`parallel::detectCores()-1`) rather than **all**
+  cores.
+
+
 ## qtl2 0.42 (2026-06-08)
 
 ### New features
@@ -23,7 +43,7 @@
   multiple individuals.
 
 - Added functions for manipulating the "phased genotypes" output of
-  `guess_phase()`: `subset.phasedgeno()`, 1rbind.phasedgeno()`, and
+  `guess_phase()`: `subset.phasedgeno()`, `rbind.phasedgeno()`, and
   `cbind.phasedgeno()`.
 
 - Added arguments `add` and `offset` to `plot_ci()`, so that you can
