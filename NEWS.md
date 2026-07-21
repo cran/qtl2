@@ -1,3 +1,17 @@
+## qtl2 0.46 (2026-07-21)
+
+### Minor changes
+
+- `chr_lengths()` now works on `"cross2"` objects (takes genetic map
+  if present, physical map if not; gives error if there's no map)
+
+### Bug fixes
+
+- Small correction to code for plot_genes tests
+
+- Small changes to tests to avoid Notes on CRAN
+
+
 ## qtl2 0.44 (2026-07-06)
 
 ### New features
